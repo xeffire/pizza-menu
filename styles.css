@@ -3,7 +3,19 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-header {
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+header,
+footer {
     display: flex;
     background-color: #222;
     color: rgba(255, 136, 25);
@@ -13,7 +25,33 @@ header {
     padding: 0 2rem
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sorting {
+    display: flex;
+    padding: 0.5rem;
+}
+
+.sorting > * {
+    margin-right: 1rem;
+}
+
+.sorting > button:not(.active) {
+    background-color: #eee;
+    color:rgba(255, 136, 25)
+}
+
+.form-cont > header {
+    margin:-1rem -1rem 1rem -1rem;
+    width: calc(100% + 2rem);
+}
+
 .card {
+    position: relative;
     width: clamp(300px, 33.3%, 600px);
     margin-bottom: 1rem;
     border: 1px solid #999;
@@ -27,8 +65,8 @@ header {
 
 .top-img {
     width: 100%;
-    height: 300px;
-    background: #eee url(./img/pexels-ponyo-sakana-5108601.webp) center / cover no-repeat;
+    height: 250px;
+    background: #eee center / cover no-repeat;
     box-shadow: inset 0 0 15px 0 #0003;
 }
 
@@ -36,18 +74,22 @@ header {
     margin: 1rem;
 }
 
-.card > *:not(.top-img) {
-    margin: 1rem;
-}
-
 .toppings {
     margin:1rem;
+    min-height: 4rem;
 }
 
 .price {
+    margin-right: 1rem;
     text-align: right;
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.remove {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
 }
 
 .container {
@@ -58,14 +100,117 @@ header {
     margin: 1rem auto;
 }
 
-button {
+button,
+input[type="submit"],
+input[type="reset"] {
     background-color: rgba(255, 136, 25);
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: 2px solid rgb(211, 112, 20);
+    color: white;
+    height: 2.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    cursor: pointer;
+}
+
+#close {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-cont {
+    background-color: #eee;
+    overflow-y: scroll;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    min-height: auto;
+    width: clamp(200px, 50%, 900px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #999;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 1rem;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    z-index: 101;
+}
+
+input, select {
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+input:focus, select:focus {
+    outline: rgba(255, 136, 25) solid 2px;
+}
+
+#photo {
+    border: none;
+    color: #666;
+    font-style: italic;
+    background: none;
+}
+
+.picture-selection {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #999;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.picture {
+    width: 100px;
+    height: 100px;
+    margin: 0.5rem;
+    background: center/cover;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.picture.active {
+    border: 2px solid rgba(255, 136, 25);
+}
+
+input[type="reset"] {
+    background-color: #eee;
+    color: rgb(211, 112, 20);
+}
+
+.dim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #2227;
+    z-index: 100;
+}
+
+/* utility classes */
+
+.hidden {
+    visibility: hidden;
 }

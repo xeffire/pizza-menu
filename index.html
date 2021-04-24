@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="js.js" defer></script>
     <title>Pizza menu</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Pizza Menu</h1>
-        <button>New item</button>
+      <h1>Pizza Menu</h1>
+      <button id="newItem">New item</button>
     </header>
-    <div class="filter-box">
-
+    <div class="sorting">
+        <p>Sort by:</p>
+        <button class="byName active">Name</button>
+        <button class="byPrice">Price</button>
+        <button class="byHeat">Heat</button>
     </div>
+    <div class="filter-box"></div>
     <main class="container">
-        <div class="card">
-            <div class="top-img">
-            </div>
-            <h2>Margherita</h2>
-            <p class="toppings">Mozzarella, Feta, Spinach</p>
-            <p class="price">4,99€</p>
-            <button class="remove">Remove from menu</button>
-        </div>
-        <div class="card">
-            <div class="top-img">
-            </div>
-            <h2>Margherita</h2>
-            <p class="toppings">Mozzarella, Feta, Spinach</p>
-            <p class="price">4,99€</p>
-            <button class="remove">Remove from menu</button>
-        </div>
-        <div class="card">
-            <div class="top-img">
-            </div>
-            <h2>Margherita</h2>
-            <p class="toppings">Mozzarella, Feta, Spinach</p>
-            <p class="price">4,99€</p>
-            <button class="remove">Remove from menu</button>
-        </div>
-        <div class="card">
-            <div class="top-img">
-            </div>
-            <h2>Margherita</h2>
-            <p class="toppings">Mozzarella, Feta, Spinach</p>
-            <p class="price">4,99€</p>
-            <button class="remove">Remove from menu</button>
-        </div>
-        <div class="card">
-            <div class="top-img">
-            </div>
-            <h2>Margherita</h2>
-            <p class="toppings">Mozzarella, Feta, Spinach</p>
-            <p class="price">4,99€</p>
-            <button class="remove">Remove from menu</button>
-        </div>
     </main>
     <footer>
-        <p>Made for VISMA Summer Intership 2021 by Justinas Goberis @ <a href="github.com/xeffire">github.com/xeffire</a> </p>
+      <p>
+        Made for VISMA Summer Intership 2021 by Justinas Goberis @
+        <a href="https://github.com/xeffire">github.com/xeffire</a>
+      </p>
     </footer>
-</body>
+
+    <form>
+      <div class="form-cont hidden">
+        <header><h2>New menu item</h2><span id="close">X</span></header>
+        <label> Name: </label>
+        <input type="text" name="name" required/>
+        <label> Price: </label>
+        <input type="text" name="price" pattern="^\d*(\.\d{0,2})?$" min="0" required/>
+        <label> Heat: </label>
+        <select name="heat" id="heat">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <label> List of toppings (seperated by coma): </label>
+        <input type="text" name="toppings" />
+        <label>Select item image. Selected: <input type="text" name="photo" id="photo" value="none"></label>
+        <div class="picture-selection">
+          <div class="picture" style="background-image: url(img/pexels-andy-kuzma-2909821.webp);"></div>
+          <div class="picture" style="background-image: url(img/pexels-natasha-filippovskaya-4394612.webp);"></div>
+          <div class="picture" style="background-image: url(img/pexels-pixabay-208537.webp);" ></div>
+          <div class="picture" style="background-image: url(img/pexels-pixabay-262977.webp);"></div>
+          <div class="picture" style="background-image: url(img/pexels-ponyo-sakana-5108601.webp);"></div>
+        </div>
+        <input type="submit" value="submit" id="submit">
+        <input type="reset" value="discard" id="discard">
+      </div>
+    </form>
+    <div class="dim hidden"></div>
+  </body>
 </html>
